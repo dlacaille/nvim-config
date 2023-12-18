@@ -1,0 +1,11 @@
+return {
+    -- Git related plugins
+    'tpope/vim-fugitive',
+    'tpope/vim-rhubarb',
+
+    -- Detect tabstop and shiftwidth automatically
+    'tpope/vim-sleuth',
+
+    -- Multiple cursors
+    'mg979/vim-visual-multi',
+}
