@@ -1,3 +1,7 @@
+-- Vim-visual-multi
+vim.g.VM_silent_exit = true
+vim.g.VM_theme = 'codedark'
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -12,8 +16,8 @@ vim.o.tabstop = 4 -- make tabs 4 spaces wide
 vim.o.shiftwidth = 4 -- tab should insert 4 spaces
 vim.o.expandtab = true -- use spaces by default
 
--- Remove command line margin
-vim.o.cmdheight = 0
+-- Set terminal output lines to 3
+vim.o.cmdheight = 3
 
 -- Always show 3 lines at start/end of buffer
 vim.o.scrolloff = 5

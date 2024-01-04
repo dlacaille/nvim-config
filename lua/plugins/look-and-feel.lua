@@ -1,23 +1,13 @@
 return {
     -- Better menus and things
-    { 'stevearc/dressing.nvim', opts = {} },
-
-    -- Highlights the symbol under the cursor.
     {
-        'RRethy/vim-illuminate',
-        config = function()
-            require('illuminate').configure {}
-        end,
+        'stevearc/dressing.nvim',
+        opts = {},
     },
 
     -- Navigatable breadcrumbs for code
     {
         'Bekaboo/dropbar.nvim',
-        event = 'VeryLazy',
-        -- optional, but required for fuzzy finder support
-        dependencies = {
-            'nvim-telescope/telescope-fzf-native.nvim',
-        },
     },
 
     -- Awesome color scheme
@@ -54,6 +44,7 @@ return {
         config = function()
             local C = require('catppuccin.palettes').get_palette()
             require('toggleterm').setup {
+                shell = 'pwsh -NoLogo',
                 highlights = {
                     FloatBorder = {
                         guifg = C.blue,
@@ -67,7 +58,6 @@ return {
     {
         'nvim-neo-tree/neo-tree.nvim',
         branch = 'v3.x',
-        event = 'VeryLazy',
         opts = {
             filesystem = {
                 filtered_items = {
@@ -154,7 +144,6 @@ return {
     -- Add indentation guides even on blank lines
     {
         'lukas-reineke/indent-blankline.nvim',
-        event = 'VeryLazy',
         -- Enable `lukas-reineke/indent-blankline.nvim`
         -- See `:help ibl`
         main = 'ibl',
@@ -165,8 +154,4 @@ return {
             scope = { enabled = false },
         },
     },
-
-    -- Tons of useful utilities for customizing your IDE
-    -- See /config/mini.lua for configuration
-    { 'echasnovski/mini.nvim', version = false },
 }

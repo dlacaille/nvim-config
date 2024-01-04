@@ -13,6 +13,9 @@ elseif os == 'Darwin' then
     vim.keymap.set('i', '<M-v>', '<C-r>+', { silent = true, noremap = true })
 end
 
+-- Open lazy
+vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Lazy' })
+
 -- Open terminal
 vim.keymap.set('n', '<leader>t', '<cmd>ToggleTerm direction=horizontal<cr>', { desc = 'Toggle terminal' })
 
