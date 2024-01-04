@@ -18,14 +18,23 @@ return {
             require('catppuccin').setup {
                 transparent_background = true,
                 integrations = {
+                    alpha = false,
                     barbar = true,
                     dropbar = {
                         enabled = true,
                         color_mode = true,
                     },
+                    flash = false,
+                    mason = true,
+                    neogit = false,
+                    ufo = false,
+                    rainbow_delimiters = false,
                     mini = {
                         enabled = true,
                         indentscope_color = 'lavender',
+                    },
+                    telescope = {
+                        enabled = false,
                     },
                     nvimtree = false,
                     neotree = true,
