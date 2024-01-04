@@ -2,6 +2,12 @@
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- https://github.com/neovim/neovim/issues/8435
+-- Workaround using this command for Windows Terminal to use C-Space as an alias for C-Y
+--   { "command": { "action": "sendInput", "input": "\u0019" }, "keys": "ctrl+space" }
+vim.keymap.set('n', '<C-y>', vim.lsp.buf.hover)
+vim.keymap.set('n', '<C-Space>', vim.lsp.buf.hover)
+
 local os = vim.loop.os_uname().sysname
 if os == 'Windows_NT' then
     -- Windows mappings

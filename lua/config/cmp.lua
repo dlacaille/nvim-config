@@ -22,6 +22,11 @@ cmp.setup {
         -- Ctrl+Space to trigger completion menu
         ['<C-Space>'] = cmp.mapping.complete(),
 
+        -- https://github.com/neovim/neovim/issues/8435
+        -- Workaround using this command for Windows Terminal to use C-Space as an alias for C-Y
+        --   { "command": { "action": "sendInput", "input": "\u0019" }, "keys": "ctrl+space" }
+        ['<C-y>'] = cmp.mapping.complete(),
+
         -- Navigate between snippet placeholder
         ['<C-f>'] = cmp_action.luasnip_jump_forward(),
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
