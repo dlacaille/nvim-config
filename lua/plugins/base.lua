@@ -14,6 +14,7 @@ return {
             'smoka7/hydra.nvim',
         },
         opts = {
+            hint_config = false,
             normal_keys = {
                 ['<C-n>'] = {
                     method = function()
