@@ -1,7 +1,3 @@
--- Vim-visual-multi
-vim.g.VM_silent_exit = true
-vim.g.VM_theme = 'codedark'
-
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -20,7 +16,7 @@ vim.o.expandtab = true -- use spaces by default
 -- Set terminal output lines to 2
 vim.o.cmdheight = 2
 
--- Always show 3 lines at start/end of buffer
+-- Always show 5 lines at start/end of buffer
 vim.o.scrolloff = 5
 
 -- Sync clipboard between OS and Neovim.
