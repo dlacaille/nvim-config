@@ -1,4 +1,7 @@
+------------------------------------------------------------------
+-- Mini.Files
 -- File browser
+------------------------------------------------------------------
 local files = require('mini.files')
 files.setup {
     mappings = {
@@ -26,7 +29,10 @@ vim.api.nvim_create_autocmd('User', {
     end,
 })
 
+------------------------------------------------------------------
+-- Mini.Indentscope
 -- Show the current scope of indentation with an animated line
+------------------------------------------------------------------
 local mis = require('mini.indentscope')
 mis.setup {
     draw = {
@@ -38,7 +44,10 @@ mis.setup {
     symbol = '▎',
 }
 
+------------------------------------------------------------------
+-- Mini.Clue
 -- Shows which keys are available
+------------------------------------------------------------------
 local miniclue = require('mini.clue')
 miniclue.setup {
     triggers = {
@@ -102,19 +111,31 @@ miniclue.setup {
     },
 }
 
+------------------------------------------------------------------
+-- Mini.Comment
 -- Allows to comment lines
+------------------------------------------------------------------
 local minicomment = require('mini.comment')
 minicomment.setup {}
 
+------------------------------------------------------------------
+-- Mini.Bracketed
 -- Go forward/backward with square brackets
+------------------------------------------------------------------
 local minibracketed = require('mini.bracketed')
 minibracketed.setup {}
 
+------------------------------------------------------------------
+-- Mini.Trailspace
 -- Highlights spaces at the end of lines
+------------------------------------------------------------------
 local minitrailspace = require('mini.trailspace')
 minitrailspace.setup {}
 
+------------------------------------------------------------------
+-- Mini.HiPatterns
 -- Highlights some text patterns
+------------------------------------------------------------------
 local hipatterns = require('mini.hipatterns')
 hipatterns.setup {
     highlighters = {
@@ -129,7 +150,10 @@ hipatterns.setup {
     },
 }
 
+------------------------------------------------------------------
+-- Mini.Pick
 -- Provides simple pickers for files using rg
+------------------------------------------------------------------
 local minipick = require('mini.pick')
 minipick.setup {
     mappings = {
@@ -153,10 +177,16 @@ vim.keymap.set('n', '<leader>fh', minipick.builtin.help, { desc = 'Find Help' })
 vim.keymap.set('n', '<leader>fr', minipick.builtin.resume, { desc = 'Find Resume' })
 vim.keymap.set('n', '<leader><space>', minipick.builtin.buffers, { desc = 'Find existing buffers' })
 
+------------------------------------------------------------------
+-- Mini.Cursorword
 -- Highlights the word under cursor
+------------------------------------------------------------------
 local minicw = require('mini.cursorword')
 minicw.setup {}
 
+------------------------------------------------------------------
+-- Mini.Notify
 -- Notifications
+------------------------------------------------------------------
 local notify = require('mini.notify')
 notify.setup {}
