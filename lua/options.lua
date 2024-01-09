@@ -1,6 +1,3 @@
--- Set highlight on search
-vim.o.hlsearch = false
-
 -- Make line numbers default
 vim.o.number = true
 
