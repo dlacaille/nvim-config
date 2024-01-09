@@ -64,7 +64,11 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- File explorer
-vim.keymap.set('n', '<leader>e', require('mini.files').open)
+vim.keymap.set('n', '<leader>e', function()
+    local files = require('mini.files')
+    files.open(vim.api.nvim_buf_get_name(0))
+    files.reveal_cwd()
+end)
 
 -- Text object remaps
 -- d as "
