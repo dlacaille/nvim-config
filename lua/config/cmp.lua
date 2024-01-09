@@ -42,6 +42,9 @@ cmp.setup {
     },
 }
 
+-- Mitigates issues with multicursors https://github.com/smoka7/multicursors.nvim/issues/26
+cmp.select_next_item { behavior = cmp.SelectBehavior }
+
 -- Add event listener to <cr> for nvim-autopairs
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
