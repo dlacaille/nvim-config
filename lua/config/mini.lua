@@ -1,3 +1,30 @@
+-- File browser
+local files = require('mini.files')
+files.setup {
+    mappings = {
+        go_in = 'L',
+        go_in_plus = '<CR>',
+        go_out = '<ESC>',
+        go_out_plus = '<BS>',
+        reset = 'H',
+    },
+}
+
+local files_set_cwd = function()
+    -- Works only if cursor is on the valid file system entry
+    local cur_entry_path = MiniFiles.get_fs_entry().path
+    local cur_directory = vim.fs.dirname(cur_entry_path)
+    vim.fn.chdir(cur_directory)
+end
+
+vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniFilesBufferCreate',
+    callback = function(args)
+        -- Keymaps for mini.files
+        vim.keymap.set('n', '.', files_set_cwd, { buffer = args.data.buf_id })
+    end,
+})
+
 -- Show the current scope of indentation with an animated line
 local mis = require('mini.indentscope')
 mis.setup {

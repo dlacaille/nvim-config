@@ -64,15 +64,7 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- File explorer
-vim.keymap.set('n', '<leader>e', function()
-    -- Focus the current file if any
-    if vim.fn.expand('%:p') ~= '' then
-        -- This is a workaround for https://github.com/nvim-neo-tree/neo-tree.nvim/issues/1157
-        vim.cmd('Neotree reveal_file=' .. vim.fn.expand('%:p'))
-    else
-        vim.cmd('Neotree')
-    end
-end, { desc = 'Open file explorer' })
+vim.keymap.set('n', '<leader>e', require('mini.files').open)
 
 -- Text object remaps
 -- d as "

@@ -63,53 +63,6 @@ return {
         end,
     },
 
-    -- File navigation
-    {
-        'nvim-neo-tree/neo-tree.nvim',
-        branch = 'v3.x',
-        opts = {
-            filesystem = {
-                filtered_items = {
-                    visible = true,
-                },
-            },
-            default_component_configs = {
-                git_status = {
-                    symbols = {
-                        -- Change type
-                        added = '',
-                        modified = '',
-                        deleted = '',
-                        renamed = '➜',
-                        -- Status type
-                        untracked = '★',
-                        ignored = '◌',
-                        unstaged = '',
-                        staged = '',
-                        conflict = '',
-                    },
-                },
-            },
-            -- Close automaticallyz when a file is opened
-            event_handlers = {
-                {
-                    event = 'file_opened',
-                    handler = function(file_path)
-                        -- auto close
-                        require('neo-tree.command').execute { action = 'close' }
-                    end,
-                },
-            },
-            enable_diagnostics = false,
-            enable_opened_markers = false,
-        },
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
-            'MunifTanjim/nui.nvim',
-        },
-    },
-
     -- Set feline as statusline
     {
         'freddiehaddad/feline.nvim',
