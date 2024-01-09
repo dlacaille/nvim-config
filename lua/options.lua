@@ -10,6 +10,7 @@ vim.o.number = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
+vim.o.mousemoveevent = true
 
 -- Default tab size
 vim.o.tabstop = 4 -- make tabs 4 spaces wide
