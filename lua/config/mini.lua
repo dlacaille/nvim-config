@@ -130,7 +130,18 @@ hipatterns.setup {
 
 -- Provides simple pickers for files using rg
 local minipick = require('mini.pick')
-minipick.setup {}
+minipick.setup {
+    mappings = {
+        choose_marked = '<C-q>', -- Send to quickfix
+        paste_system_clipboard = {
+            char = '<C-v>',
+            func = function()
+                -- Simulate the keypresses for <C-r> (paste register), * (system register)
+                vim.api.nvim_input(vim.api.nvim_replace_termcodes('<C-r>*', true, true, true))
+            end,
+        },
+    },
+}
 
 vim.keymap.set('n', '<leader>ff', minipick.builtin.files, { desc = 'Find Files' })
 vim.keymap.set('n', '<leader>gf', function()
