@@ -69,9 +69,37 @@ return {
         event = 'VeryLazy',
         config = function()
             local C = require('catppuccin.palettes').get_palette()
+            local ok, hydra = pcall(require, 'hydra.statusline')
             local components = require('catppuccin.groups.integrations.feline').get()
+
+            -- Remove filename as it is already in the tabline
             components.active[3][3].enabled = false
-            components.active[3][4].left_sep.hl.bg = C.mantle
+            components.active[3][4].left_sep.hl.bg = 'NONE'
+
+            -- Disable middle column when hydra is active
+            for k, _ in pairs(components.active[2]) do
+                components.active[2][k].enabled = function()
+                    return not hydra.is_active()
+                end
+            end
+
+            -- Show hydra status
+            table.insert(components.active[2], {
+                hl = {
+                    fg = C.yellow,
+                    bg = 'NONE',
+                },
+                left_sep = {
+                    str = ' ',
+                    hl = { bg = 'NONE' },
+                },
+                right_sep = {
+                    str = ' ',
+                    hl = { bg = 'NONE' },
+                },
+                enabled = hydra.is_active,
+                provider = hydra.get_name,
+            })
 
             require('feline').setup {
                 components = components,
