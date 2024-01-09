@@ -4,7 +4,7 @@ files.setup {
     mappings = {
         go_in = 'L',
         go_in_plus = '<CR>',
-        go_out = '<ESC>',
+        go_out = '',
         go_out_plus = '<BS>',
         reset = 'H',
     },
@@ -22,6 +22,7 @@ vim.api.nvim_create_autocmd('User', {
     callback = function(args)
         -- Keymaps for mini.files
         vim.keymap.set('n', '.', files_set_cwd, { buffer = args.data.buf_id })
+        vim.keymap.set('n', '<ESC>', files.close, { buffer = args.data.buf_id })
     end,
 })
 
