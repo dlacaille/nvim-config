@@ -26,7 +26,7 @@ require('mason').setup {
 
 require('mason-lspconfig').setup {
     -- This is the list of servers to install and configure using lsp-zero
-    ensure_installed = { 'csharp_ls', 'tsserver', 'lua_ls', 'volar' },
+    ensure_installed = { 'csharp_ls', 'rust_analyzer', 'tsserver', 'lua_ls', 'volar' },
     handlers = {
         lsp_zero.default_setup,
     },
