@@ -41,12 +41,6 @@ vim.keymap.set('n', '<leader>Q', '<cmd>q<cr>', { desc = 'Quit buffer (force)' })
 vim.keymap.set('n', 'H', '<cmd>BufferPrevious<cr>', { silent = true, noremap = true })
 vim.keymap.set('n', 'L', '<cmd>BufferNext<cr>', { silent = true, noremap = true })
 
--- Window navigation
-vim.keymap.set('n', '<C-h>', '<C-w>h', { silent = true, noremap = true })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { silent = true, noremap = true })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { silent = true, noremap = true })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { silent = true, noremap = true })
-
 -- Toggle term mappings
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
@@ -71,30 +65,13 @@ vim.keymap.set('n', '<leader>e', function()
 end)
 
 -- Text object remaps
--- d as "
-vim.keymap.set('v', 'id', 'i"', { silent = true, noremap = true, desc = 'Inside double quotes' })
-vim.keymap.set('v', 'ad', 'a"', { silent = true, noremap = true, desc = 'Around double quotes' })
-vim.keymap.set('o', 'id', 'i"', { silent = true, noremap = true, desc = 'Inside double quotes' })
-vim.keymap.set('o', 'ad', 'a"', { silent = true, noremap = true, desc = 'Around double quotes' })
-
--- s as '
-vim.keymap.set('v', 'is', "i'", { silent = true, noremap = true, desc = 'Inside single quotes' })
-vim.keymap.set('v', 'is', "i'", { silent = true, noremap = true, desc = 'Inside single quotes' })
-vim.keymap.set('o', 'as', "a'", { silent = true, noremap = true, desc = 'Around single quotes' })
-vim.keymap.set('o', 'as', "a'", { silent = true, noremap = true, desc = 'Around single quotes' })
-
--- c as {
-vim.keymap.set('v', 'ic', 'i{', { silent = true, noremap = true, desc = 'Inside curly braces' })
-vim.keymap.set('v', 'ac', 'a{', { silent = true, noremap = true, desc = 'Around curly braces' })
-vim.keymap.set('o', 'ic', 'i{', { silent = true, noremap = true, desc = 'Inside curly braces' })
-vim.keymap.set('o', 'ac', 'a{', { silent = true, noremap = true, desc = 'Around curly braces' })
-
--- Highlight on yank
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-    group = highlight_group,
-    pattern = '*',
-})
+local function alias_text_object(alias, text_object, desc_suffix)
+    for _, m in pairs { 'v', 'o' } do
+        for p, d in pairs { i = 'Inside', a = 'Around' } do
+            vim.keymap.set(m, p .. alias, p .. text_object, { silent = true, noremap = true, desc = d .. desc_suffix })
+        end
+    end
+end
+alias_text_object('d', '"', 'double quotes')
+alias_text_object('s', "'", 'single quotes')
+alias_text_object('c', '{', 'curly braces')
