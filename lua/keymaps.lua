@@ -64,6 +64,9 @@ vim.keymap.set('n', '<leader>e', function()
     files.reveal_cwd()
 end)
 
+-- Search and replace
+vim.keymap.set('n', '<leader>fs', require('spectre').open, { desc = 'Search and replace' })
+
 -- Text object remaps
 local function alias_text_object(alias, text_object, desc_suffix)
     for _, m in pairs { 'v', 'o' } do

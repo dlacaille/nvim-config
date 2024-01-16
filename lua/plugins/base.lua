@@ -6,6 +6,15 @@ return {
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
 
+    -- Search and replace
+    {
+        'nvim-pack/nvim-spectre',
+        event = 'VeryLazy',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+        },
+    },
+
     -- Multiple cursors
     {
         'smoka7/multicursors.nvim',
