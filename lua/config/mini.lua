@@ -26,7 +26,6 @@ files.setup {
 }
 
 local files_set_cwd = function()
-    -- Works only if cursor is on the valid file system entry
     local cur_entry_path = MiniFiles.get_fs_entry().path
     local cur_directory = vim.fs.dirname(cur_entry_path)
     vim.fn.chdir(cur_directory)
@@ -178,9 +177,14 @@ minipick.setup {
             end,
         },
     },
+    options = {
+        use_cache = true,
+    },
 }
 
-vim.keymap.set('n', '<leader>ff', minipick.builtin.files, { desc = 'Find Files' })
+vim.keymap.set('n', '<leader>ff', function()
+    minipick.builtin.files { tool = 'fd' }
+end, { desc = 'Find Files' })
 vim.keymap.set('n', '<leader>gf', function()
     minipick.builtin.files { tool = 'git' }
 end, { desc = 'Search git files' })
