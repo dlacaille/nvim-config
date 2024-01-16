@@ -1,6 +1,10 @@
 -- Make line numbers default
 vim.o.number = true
 
+-- Configure title
+vim.o.title = true
+vim.o.titlestring = "nvim in %{substitute(getcwd(), $HOME, '~', '')}"
+
 -- Enable mouse mode
 vim.o.mouse = 'a'
 vim.o.mousemoveevent = true
