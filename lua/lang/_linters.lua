@@ -10,7 +10,7 @@ require('lint').linters_by_ft = {
 }
 
 -- Automatically lint on text changed
-vim.api.nvim_create_autocmd({ 'TextChanged' }, {
+vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave', 'BufEnter', 'BufWritePost' }, {
     callback = function()
         require('lint').try_lint()
     end,
