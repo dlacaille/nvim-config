@@ -2,9 +2,10 @@
 require('lint').linters_by_ft = {
     markdown = { 'vale' },
     typescript = { 'eslint_d' },
-    tsx = { 'eslint_d' },
+    typescriptreact = { 'eslint_d' },
     html = { 'eslint_d' },
     javascript = { 'eslint_d' },
+    javascriptreact = { 'eslint_d' },
     vue = { 'eslint_d' },
 }
 

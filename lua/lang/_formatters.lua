@@ -3,11 +3,13 @@ require('conform').setup {
     formatters_by_ft = {
         lua = { 'stylua' },
         typescript = { { 'prettierd', 'prettier' } },
-        tsx = { { 'prettierd', 'prettier' } },
+        typescriptreact = { { 'prettierd', 'prettier' } },
         html = { { 'prettierd', 'prettier' } },
         javascript = { { 'prettierd', 'prettier' } },
         vue = { { 'prettierd', 'prettier' } },
         yaml = { { 'prettierd', 'prettier' } },
+        json = { { 'prettierd', 'prettier' } },
+        jsonc = { { 'prettierd', 'prettier' } },
         -- have other formatters configured.
         -- ['_'] = { 'trim_whitespace' },
     },
