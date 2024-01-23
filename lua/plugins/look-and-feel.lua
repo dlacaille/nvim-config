@@ -10,6 +10,11 @@ return {
         'Bekaboo/dropbar.nvim',
     },
 
+    -- File browser
+    {
+        'nvim-tree/nvim-tree.lua',
+    },
+
     -- Awesome color scheme
     {
         'catppuccin/nvim',

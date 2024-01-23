@@ -1,6 +1,10 @@
 -- Make line numbers default
 vim.o.number = true
 
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Configure title
 vim.o.title = true
 vim.o.titlestring = "nvim in %{substitute(getcwd(), $HOME, '~', '')}"
